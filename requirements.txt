@@ -1,0 +1,12 @@
+streamlit
+python-dotenv
+google-genai
+
+PyPDF2
+python-docx
+openpyxl
+python-pptx
+
+requests
+beautifulsoup4
+
