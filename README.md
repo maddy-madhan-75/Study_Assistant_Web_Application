@@ -1,244 +1,195 @@
-📚 Study Assistant — AI-Powered Learning Companion
+📚 AI Study Assistant — GenAI Capstone Project
 
-A Streamlit application that extracts text from uploaded files or URLs and uses Google Gemini to generate:
+🧩 1. Problem Statement
+Students often work with large volumes of study material in different formats—PDFs, Word files, PowerPoint slides, Excel sheets, and web articles.
 
-->Concise summaries
 
-->Multiple-choice quizzes
+Manually reading, summarizing, and preparing study resources like quizzes or flashcards is time-consuming and inefficient.
 
-->Flashcards
+The challenge is to build an AI-powered agent that can:
 
-->7-day study plans
+->Understand and extract meaningful content from multiple file formats
 
-Designed for students and educators who want fast and intelligent learning support.
+->Summarize complex documents
 
-🚀 Features
-1. Multi-format File Support
+->Generate quizzes and flashcards using structured output
 
-Upload widely used study materials:
+->Create a personalized study plan
 
-TXT
+->Provide an easy-to-use interface
 
+This project solves the problem by integrating Google Gemini and a multi-format text extraction system inside an intuitive Streamlit web application.
+
+🛠 2. Solution Overview
+
+We developed an AI Study Assistant capable of:
+
+->Uploading and reading multiple file formats:
 PDF
 
 DOCX
 
-XLSX
-
 PPTX
 
-Or provide a URL, and the system extracts meaningful text from the webpage.
+XLSX
 
-2. AI-Generated Outputs (Powered by Gemini 2.5 Flash)
+TXT
 
-Summary — clean, structured markdown summarization
+Web URLs
 
-Quiz — 5 structured MCQs with answers & explanations
+->Extracting relevant text
 
-Flashcards — 10 term–definition pairs
+Using PyPDF2, python-docx, openpyxl, python-pptx, and BeautifulSoup.
 
-Study Plan — custom 7-day structured learning schedule
+->Generating study resources automatically:
 
-3. Modern, Interactive UI
+Concise summaries
 
-Built entirely using Streamlit
+Multiple-choice quizzes (MCQs)
 
-Tabs for each feature
+Flashcards
 
-Real-time feedback
+7-day study plans
 
-Session-based grading and quiz interactions
+->Using Gemini 2.5 Flash for:
 
-🧠 System Architecture
-+-------------+
-|  User Input |
-+-------------+
-      |
-      v
-+-----------------------+
-| File / URL Extraction |
-|  - PDF (PyPDF2)       |
-|  - DOCX (python-docx) |
-|  - XLSX (openpyxl)    |
-|  - PPTX (python-pptx) |
-|  - URL (BeautifulSoup)|
-+-----------------------+
-      |
-      v
-+-----------------------+
-|  Unified Text Router  |
-+-----------------------+
-      |
-      v
-+------------------------------+
-| Gemini 2.5 Flash Generation  |
-|  - Summary                   |
-|  - Quiz (Structured Output)  |
-|  - Flashcards                |
-|  - Study Plan                |
-+------------------------------+
-      |
-      v
-+-----------------------+
-| Streamlit UI Renderer |
-+-----------------------+
+Natural language understanding
 
-🛠️ Technologies Used
-Backend / Logic
+Reasoning
 
-Python 3.10+
+Structured output generation
 
-Google Gemini (google-genai)
+Educational content generation
 
-Text processing libraries:
+->Presenting everything in a clean Streamlit UI with:
+Tabs
+
+Interactive quiz evaluation
+
+Expandable flashcards
+
+Dynamic content rendering
+
+This end-to-end system provides a smart, automated study workflow powered by GenAI.
+
+
+🏗 3. System Architecture
+
+![sysarki](https://github.com/user-attachments/assets/5a5c68d4-2b7d-40bc-8bb5-0d6af249e57d)
+
+🪄 4. Key Concepts Used :
+
+1) GenAI Model Usage
+Google Gemini 2.5 Flash
+GenerateContent API with structured schemas
+Multi-task prompting
+Educational content generation
+
+2) Agent Design Principles
+Modular architecture
+Task-specific functions
+Clean separation: extraction → processing → AI → UI
+
+3) Structured Output
+Gemini JSON schema for:
+Quiz questions
+Flashcards
+Reliable parsing inside Streamlit
+
+4) Multimodal / Multi-format Processing
+
+The agent handles:
+Text documents
+Presentations
+Spreadsheets
+Web content
+
+5) User Interaction Flow
+Upload → Extract → Generate → Display → Evaluate
+
+📦 5. Requirements
+
+streamlit
+python-dotenv
+google-genai
 
 PyPDF2
-
 python-docx
-
 openpyxl
-
 python-pptx
 
+requests
 beautifulsoup4
 
-requests
+Install all dependencies using the below command:
 
-Frontend
-
-Streamlit
-
-HTML/CSS rendering inside Streamlit
-
-Session state for interaction handling
-
-📦 Installation
-1. Clone the repository
-git clone <your-repo-url>
-cd study_assistant
-
-2. Create a virtual environment
-python -m venv venv
-
-3. Activate the environment
-
-If Windows
-
-venv\Scripts\activate
-
-
-If Mac/Linux
-
-source venv/bin/activate
-
-4. Install dependencies
 pip install -r requirements.txt
 
-5. Set your Gemini API Key
+▶ 6. How to Run the Project:
+
+1. Clone the repository:
+
+git clone https://github.com/maddy-madhan-75/Study_Assistant_Web_Application.git
+cd Study_Assistant_Web_Application
+
+2. Create and activate a virtual environment:
+
+For Windows:
+
+python -m venv venv
+venv\Scripts\activate
+
+For Mac/Linux:
+
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install dependencies:
+
+pip install -r requirements.txt
+
+4. Set your Gemini API key:
 
 Create a .env file:
 
 GEMINI_API_KEY=your_api_key_here
 
-▶️ Running the App
+5. Run the Streamlit app:
+
 streamlit run main.py
 
+The app will open in your browser.
 
-Open the link Streamlit provides in your browser.
+🖼 7. Screenshots
 
-📁 Project Structure
-study_assistant/
-│
-├── main.py                 # Streamlit application
-├── requirements.txt        # Dependencies
-├── lib/
-│   └── quizzing_engine.py  # Structured Quiz/Flashcard models
-├── README.md               # Documentation
-└── .env                    # Environment variables (not committed)
+Home Screen
 
-✨ Key Functions Overview
-Text Extraction
+![g1](https://github.com/user-attachments/assets/064dbb95-6dd6-4e8d-814c-5ac6632bbbb9)
 
-PDFs → PyPDF2
+Generated Summary
 
-Word files → python-docx
+![g2](https://github.com/user-attachments/assets/66be30c7-1fe2-471d-9564-71cf273eb213)
 
-Excel → openpyxl
+Generated Quiz
 
-PowerPoint → python-pptx
+![g3](https://github.com/user-attachments/assets/c1781d80-8ba8-4492-a7bc-7252ceae1319)
 
-Webpages → requests + BeautifulSoup
+Flashcards
 
-AI Processing
+![g4](https://github.com/user-attachments/assets/62e1b41e-250a-4916-b963-ab3c5f36c6e4)
 
-Each of these uses Gemini:
+Study Plan
 
-generate_summary()
+![g5](https://github.com/user-attachments/assets/a58aeb89-eafa-492c-9a3f-9ac2cbd16644)
 
-generate_quiz()
 
-generate_flashcards()
+🏁 8. Conclusion
 
-generate_study_plan()
-
-Structured Outputs
-
-Quiz and flashcards use Gemini JSON-mode or schema-based responses to ensure consistent output.
-
-🧪 Example Outputs
-Summary (Sample)
-## Key Concepts
-- ...
-- ...
-
-Quiz (Sample)
-Q1. What is ...?
-A) ...
-B) ...
-Correct: B
-
-Flashcards (Sample)
-Front: Term A
-Back: Definition A
-
-Study Plan (Sample)
-Day 1 — Read primary notes
-Day 2 — Build flashcards
-Day 3 — Solve practice questions
-...
-
-🧩 Known Limitations
-
-Model output may vary; fallback logic handles unexpected structures
-
-Very large PDF/URL content may be slower to process
-
-The app does not currently support image OCR
-
-🔮 Future Improvements
-
-Add embeddings for semantic search
-
-Add long-context Gemini models (e.g., Flash Thinking)
-
-Save and re-load generated quizzes
-
-Support PDF tables extraction
-
-Add RAG-based augmentation
-
-Deploy via Streamlit Cloud or Render
-
-🏁 Conclusion
-
-The AI Study Assistant is a flexible and powerful tool for transforming study materials into structured, interactive learning assets. It demonstrates:
-
-Modern GenAI skills
-
-Multi-format file processing
-
-Structured output design
-
-Real-time UI development with Streamlit
-
-Perfect for learning, education workflows, and rapid prototyping of AI-powered study tools.
+This project demonstrates how GenAI can deeply transform education by automating content understanding and study material generation.
+The Study Assistant Agent:
+Handles multi-format documents
+Extracts meaningful content
+Uses Gemini 2.5 Flash for structured reasoning
+Generates practical study aids
+Presents everything in a usable, clean UI
+It showcases end-to-end GenAI agent development, integrating document parsing, structured outputs, and real-time interaction
